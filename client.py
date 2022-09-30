@@ -1,3 +1,4 @@
+import contextlib
 import socket
 
 conn = socket.socket()
@@ -7,9 +8,13 @@ while True:
     command = input()
     conn.send(bytes(command, "utf-8"))
     while True:
-        try:
+        with contextlib.suppress(Exception):
             response = conn.recv(1024)
             print(response.decode("utf-8"))
             break
-        except Exception:
-            pass
+        # try:
+        #     response = conn.recv(1024)
+        #     print(response.decode("utf-8"))
+        #     break
+        # except Exception:
+        #     pass
