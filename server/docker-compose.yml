@@ -1,0 +1,12 @@
+services:
+  web:
+    container_name: "py-server"
+    build: .
+    ports:
+      - "8888:8888"
+    stdin_open: true
+    tty: true
+
+  redis:
+    container_name: "my-db"
+    image: "redis"

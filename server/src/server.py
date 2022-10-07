@@ -4,11 +4,10 @@ import redis
 
 
 my_redis = redis.Redis(host="my-db", port = 6379)
-if input("delete all keys in db? 0/1"):
-    for i in my_redis.scan_iter():
-        my_redis.delete(i)
+for i in my_redis.scan_iter():
+    my_redis.delete(i)
 print("redis connected")
-input("press enter");
+print("waiting...")
 sock = socket.socket()
 sock.bind( ("", 8888) )
 sock.listen(1)

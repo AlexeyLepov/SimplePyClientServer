@@ -2,7 +2,7 @@ import socket
 
 input("press enter for connection");
 conn = socket.socket()
-conn.connect( ("py-server", 8888) )
+conn.connect( ("127.0.0.1", 8888) )
 
 while True:
     command = input()
